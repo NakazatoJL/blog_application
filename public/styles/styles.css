@@ -1,0 +1,276 @@
+body{
+    font-family: 'Comfortaa', sans-serif;
+    background: #030637;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, a{
+    color: #f8a0dc;
+}
+
+p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+textarea {
+    resize: none;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentBlock{
+    background: #720455;
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
+    border-radius: 20px;
+}
+
+.contentFlex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.faqFlex{
+    display: flex;
+    gap: 1rem;
+}
+
+.verticalFlex{
+    display: flex;
+    padding: 1.5rem 1.5rem;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.popup{
+    position: fixed;
+    width: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.filter{
+    background-color: gray;
+    opacity: 0.5;
+    width: 100%;
+    height: 100vh;
+}
+
+.contentFlex .iconFlex{
+    display: flex;
+    justify-content: end;
+}
+
+.navParent{
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: end;
+}
+
+.navItem{
+    color: #f8a0dc;
+    display: block;
+    padding: 1.2rem 1rem 1rem 1rem;
+    text-decoration: none;
+}
+
+.navItem.h:hover{
+    background: #720455;
+}
+
+#content{
+    padding: 4rem 1rem;
+}
+
+.fixed{
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    background:#3C0753;
+    width: 100%;
+}
+
+.transparent{
+    background: transparent;
+}
+
+footer{
+    color: #f8a0dc;
+}
+
+.navToggle{
+    float: right;
+    display: block;
+    background: #3C0753;
+    border: 0;
+    border-radius: 10px;
+    padding: 5px;
+}
+.navToggle img{
+    width: 25px;
+    height: 25px;
+}
+
+.moreButton{
+    width: 100%;
+    text-align: right;
+    color: #f8a0dc;
+    text-decoration: underline;
+    background: transparent;
+    border: 0;
+}
+
+.profilePic{
+    width: 200px;
+    border-radius: 50%;
+    float: right;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.postIcon , .faqIcon{
+    width: 25px;
+    height: 25px;
+    background: transparent;
+    border: transparent solid 5px;
+}
+
+.postIcon:hover , .faqIcon:hover{
+    background: #3C0753;
+    border: #3C0753 solid 5px;
+    border-radius: 20%;
+}
+
+.faqIcon{
+    margin-top: 0.8rem;
+}
+
+.faqContent{
+    padding-left: 1rem;
+}
+
+.halfButtons{
+    width: 49%;
+}
+
+#title{
+    padding-right: auto;
+}
+
+#editTitle{
+    width: 50%;
+    background: #030637;
+    color: #f8a0dc;
+    border-radius: 5px;
+    border: transparent;
+    font-family: 'Comfortaa', sans-serif;
+}
+
+#editContent{
+    background: #030637;
+    color: #f8a0dc;
+    border: transparent;
+    border-radius: 10px;
+    font-family: 'Comfortaa', sans-serif;
+}
+
+.editSubmit{
+    background: #3C0753;
+    color: #f8a0dc;
+    font-family: 'Comfortaa', sans-serif;
+    padding: 0.5rem 0;
+    border-radius: 10px;
+    border: transparent;
+}
+
+a.editSubmit{
+    text-decoration: none;
+    text-align: center;
+    font-size: smaller;
+}
+
+#editorInput{
+    width: 100%;
+    background: #030637;
+    color: grey;
+    border-radius: 5px;
+    border: transparent;
+    padding: 0.4rem;
+    font-family: 'Comfortaa', sans-serif;
+    text-align: left;
+}
+
+#deleteSubmit{
+    background: #f8a0dc;
+    color: #3C0753;
+    font-family: 'Comfortaa', sans-serif;
+    padding: 0.5rem 0;
+    border-radius: 10px;
+    border: transparent;
+}
+
+#cancelSubmit{
+    background: #3C0753;
+    color: #f8a0dc;
+    font-family: 'Comfortaa', sans-serif;
+    padding: 0.5rem 0;
+    border-radius: 10px;
+    border: transparent;
+}
+
+.hidden{
+    display: none;
+}
+
+input[type=text]:focus , #editContent{
+    outline: none;
+}
+
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #3C0753;
+    color: #f8a0dc;
+    text-align: center;
+    padding: 0.7rem 0;
+}
+
+@media (max-width: 600px) {
+    .nav{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #title{
+        display: none;
+    }
+
+    #content{
+        padding: 2rem 1rem;
+    }
+
+    .profilePic{
+        margin-right: 0;
+    }
+
+    p{
+        text-align: justify;
+    }
+
+}

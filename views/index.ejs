@@ -1,0 +1,107 @@
+<%- include("./partials/header.ejs") %>
+
+<div class="contentBlock">
+    <form action="/edit" method="POST">
+        <input type="hidden" value=-1 %> name="post_id" />
+        <input id="editorInput" type="submit" value="What is on your mind?"/>
+    </form>
+</div>
+
+<% if(locals.del || locals.edit) {%>
+<div class="pop">
+    <div class="popup filter"></div>
+    <% if(locals.edit){%>
+    <div class="popup">
+        <% if(edit === "-1") {%>
+        <form action="/submit" method="POST" class="contentBlock verticalFlex">
+            <div>
+                <h3>Title</h3>
+                <input id="editTitle" type="text" maxlength="100" name="fTitle"/>
+            </div>
+            <textarea id="editContent" name="fContent" id="" cols="30" rows="20" placeholder="Content"></textarea>
+            <input class="editSubmit" type="submit" value="Post">
+        </form>
+        <%}else{%>
+        <div class="contentBlock">
+            <form action="/submitEdit" method="POST" class= "verticalFlex">
+                <div>
+                    <h3>Title</h3>
+                    <input id="editTitle" type="text" maxlength="100" name="fTitle" value="<%=posts[edit].title%>" />
+                </div>
+                <textarea id="editContent" name="fContent" id="" cols="30" rows="20" placeholder="Content"><%=posts[edit].shortContent%><%=posts[edit].content%></textarea>
+                <input type="hidden" value=<%= edit %> name="post_id" />
+                <div class="contentFlex">
+                    <input class="editSubmit halfButtons" type="submit" value="Post">
+                    <a href="/" class="editSubmit halfButtons">Cancel</a>
+                </div>
+            </form>
+        </div>
+        <%}%>
+    </div>
+    <%}%>
+    <% if(locals.del){%>
+    <div class="popup">
+        <div class="contentBlock verticalFlex">
+            <h3 style="text-align: center;">Are you sure you want to the delete this post?</h3>
+            <div class="contentFlex">
+                <form action="/delete" method="POST" class="halfButtons">
+                    <input type="hidden" value=<%= del %> name="post_id" />
+                    <input id="deleteSubmit" type="submit" value="Delete" style="width: 100%;">
+                </form>
+                <form action="/" method="GET" class="halfButtons">
+                    <input id="cancelSubmit" type="submit" value="Cancel" style="width: 100%;">
+                </form>
+            </div>
+        </div>
+    </div>
+    <%}%>
+</div>
+<%}%>
+
+<% if(locals.posts && locals.posts.length > 0){%>
+    <div>
+    <% for (let i = 0; i < posts.length; i++) {%>
+    <div class="contentBlock">
+        <div class="contentFlex">
+            <h3><%= posts[i].title %></h3>
+            <div class="iconFlex">
+                <form action="/edit" method="POST">
+                    <input type="hidden" value=<%= posts[i].id %> name="post_id" />
+                    <input type="image" src="./images/edit.svg" alt="Edit Button" class="postIcon"/>
+                </form>
+                <form action="/cDelete" method="POST">
+                    <input type="hidden" value=<%= posts[i].id %> name="post_id" />
+                    <input type="image" src="./images/delete.svg" alt="Delete Button" class="postIcon"/>
+                </form>
+            </div>
+        </div>
+        <div>
+            <% if(posts[i].more === "true"){ %>
+                <div><%- posts[i].htmlShortContent %><%- posts[i].htmlContent %></div>
+                <form action="/readmore" method="POST">
+                    <input type="hidden" value=<%= posts[i].id %> name="post_id" />
+                    <input type="hidden" value="false" name="read_more" />
+                    <input class="moreButton" type="submit" value="Read less"/>
+                </form>
+            <%} else{%>
+                <div><%- posts[i].htmlShortContent %>...</p></div>
+                <form action="/readmore" method="POST">
+                    <input type="hidden" value=<%= posts[i].id %> name="post_id" />
+                    <input type="hidden" value="true" name="read_more" />
+                    <input class="moreButton" type="submit" value="Read more"/>
+                </form>
+            <% }%>
+        </div>
+    </div>
+
+    <%}%>
+    </div>
+<% }else{%>
+    <div>
+        <h1 class="center">☝️ There are no posts yet, create one ☝️</h1>
+    </div>
+<%} %>
+
+
+
+<%- include("./partials/footer.ejs") %>

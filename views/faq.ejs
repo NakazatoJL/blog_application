@@ -1,0 +1,103 @@
+<%- include("./partials/header.ejs") %>
+
+<% let id = 0; if(faqExpand[id] === "true") {%>
+<div>
+    <div class="faqFlex contentBlock">
+        <h3>How to create a post?</h3>
+        <form action="/expand" method="POST">
+            <input type="hidden" value= <%= id %> name="post_id" />
+            <input type="hidden" value="false" name="expand" />
+            <input type="image" src="./images/up.svg" alt="Expand Button" class="faqIcon"/>
+        </form>
+    </div>
+    <div class="faqContent">
+        <p>You can create a post by clicking on the area that says "What is on your mind?" in the home page.</p>
+    </div>
+</div>
+<% } else{ %>
+    <div class="faqFlex contentBlock">
+        <h3>How to create a post?</h3>
+        <form action="/expand" method="POST">
+            <input type="hidden" value= <%= id %> name="post_id" />
+            <input type="hidden" value="true" name="expand" />
+            <input type="image" src="./images/down.svg" alt="Expand Button" class="faqIcon"/>
+        </form>
+    </div>
+<% } %>
+
+<% id = 1; if(faqExpand[id] === "true") {%>
+    <div>
+        <div class="faqFlex contentBlock">
+            <h3>How to edit a post?</h3>
+            <form action="/expand" method="POST">
+                <input type="hidden" value=<%= id %> name="post_id" />
+                <input type="hidden" value="false" name="expand" />
+                <input type="image" src="./images/up.svg" alt="Expand Button" class="faqIcon"/>
+            </form>
+        </div>
+        <div class="faqContent">
+            <p>You can edit a post by clicking the edit button represented by a pen on the right side of the post.</p>
+        </div>
+    </div>
+<% } else{ %>
+        <div class="faqFlex contentBlock">
+            <h3>How to edit a post?</h3>
+            <form action="/expand" method="POST">
+                <input type="hidden" value=<%= id %> name="post_id" />
+                <input type="hidden" value="true" name="expand" />
+                <input type="image" src="./images/down.svg" alt="Expand Button" class="faqIcon"/>
+            </form>
+        </div>
+<% } %>
+
+<% id = 2; if(faqExpand[id] === "true") {%>
+    <div>
+        <div class="faqFlex contentBlock">
+            <h3>How to delete a post?</h3>
+            <form action="/expand" method="POST">
+                <input type="hidden" value=<%= id %> name="post_id" />
+                <input type="hidden" value="false" name="expand" />
+                <input type="image" src="./images/up.svg" alt="Expand Button" class="faqIcon"/>
+            </form>
+        </div>
+        <div class="faqContent">
+            <p>You can delete a post by clicking the delete button represented by a a trash can on the top right corner of the post.</p>
+        </div>
+    </div>
+<% } else{ %>
+        <div class="faqFlex contentBlock">
+            <h3>How to delete a post?</h3>
+            <form action="/expand" method="POST">
+                <input type="hidden" value=<%= id %> name="post_id" />
+                <input type="hidden" value="true" name="expand" />
+                <input type="image" src="./images/down.svg" alt="Expand Button" class="faqIcon"/>
+            </form>
+        </div>
+<% } %>
+
+<% id = 3; if(faqExpand[id] === "true") {%>
+    <div>
+        <div class="faqFlex contentBlock">
+            <h3>How to expand the text on a post to read more or less?</h3>
+            <form action="/expand" method="POST">
+                <input type="hidden" value=<%= id %> name="post_id" />
+                <input type="hidden" value="false" name="expand" />
+                <input type="image" src="./images/up.svg" alt="Expand Button" class="faqIcon"/>
+            </form>
+        </div>
+        <div class="faqContent">
+            <p>You can read more of a post by clicking "read more" on the bottom right corner of the post, the opposite can be done by clicking "read less" once the post has been expanded.</p>
+        </div>
+    </div>
+<% } else{ %>
+        <div class="faqFlex contentBlock">
+            <h3>How to expand the text on a post to read more or less?</h3>
+            <form action="/expand" method="POST">
+                <input type="hidden" value=<%= id %> name="post_id" />
+                <input type="hidden" value="true" name="expand" />
+                <input type="image" src="./images/down.svg" alt="Expand Button" class="faqIcon"/>
+            </form>
+        </div>
+<% } %>
+
+<%- include("./partials/footer.ejs") %>
